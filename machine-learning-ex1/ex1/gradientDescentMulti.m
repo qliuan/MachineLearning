@@ -19,15 +19,12 @@ for iter = 1:num_iters
 
     diff = X*theta-y;
 
-    for row = 1:size(X,2)
-        theta(row,1) = theta(row,1)-sum(diff.*X(:,row))*alpha/m;
-    end
+    %for row = 1:size(X,2)
+    %    theta(row,1) = theta(row,1)-sum(diff.*X(:,row))*alpha/m;
+    %end
 
-
-    %fprintf('Iteration: %d\n', row);
-    %theta 
-    %fprintf('\n');
-
+    % Vectorized Implementation
+    theta = theta - (X'*diff)*alpha/m;
 
     % ============================================================
 
